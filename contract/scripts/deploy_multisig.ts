@@ -1,8 +1,25 @@
 const { ethers, tenderly } = require("hardhat");
 
+async function deploy_multisig(owners: string[]) {
+  /**
+   * owners : list of public key owners
+   **/  
+  console.log("Keys:", owners)
+  console.log("Before contract...");
+
+  const multisigWalletFactory = await ethers.getContractFactory("MultiSigWallet");
+
+  console.log("Deploying MultiSigWallet...");
+  
+  const multisigWallet = await multisigWalletFactory.deploy(owners, owners.length);
+  await multisigWallet.deployed();
+
+
+  console.log("Contract address:", multisigWallet.address);
+}
+
 
 async function main() {
-
 
   const accounts = [
     ["0x991eBbEC9015233B986c29A14503Cf29c01DE48A", "0xa5049841459638796bb9880fb24d0039bf15bcb1843ff24d68b85132b6b01591"],
@@ -16,21 +33,8 @@ async function main() {
     owners.push(accounts[index][0])
   }
 
-  console.log("Keys:", owners)
-
-  console.log("Before contract...");
-
-
-  const multisigWalletFactory = await ethers.getContractFactory("MultiSigWallet");
-
-  console.log("Deploying MultiSigWallet...");
+  deploy_multisig(owners);
   
-  const multisigWallet = await multisigWalletFactory.deploy(owners, owners.length);
-  await multisigWallet.deployed();
-
-
-  console.log("Contract address:", multisigWallet.address);
-
 }
 
 
