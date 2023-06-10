@@ -31,7 +31,8 @@ export default function Home() {
       <NavBar className={`g-nav fixed flex items-center justify-between w-full px-10 py-5 z-20 backdrop-blur-md ${scroll ? 'text-purple' : 'text-white'}`}>
         <BrandName className="!mb-0">RealState - NFT Market</BrandName>
         <Menu className="g-nav__menu">
-          <a href="#s-project" className="is-active">Project</a>
+          <a href="#s-token">Tokenization</a>
+          <a href="#s-project">Project</a>
           <a href="#s-building">Building</a>
           <a href="#s-market">Market</a>
           <a href="#s-legal">Legals</a>
@@ -46,10 +47,44 @@ export default function Home() {
             </figure>
 
             <div className="header-main__content">
-              <Title3 className="title-sm">A NEW WAY OF LIVING LIFE</Title3>
-              <Title2>A new world, feel it</Title2>
+              <Title3 className="title-sm">OWNERSHIP REINVENTED</Title3>
+              <Title2 className="">Fractional and frictionless<br/>real estate investing</Title2>
             </div>
           </Banner>
+
+          <Section className="s-token" id="s-token">
+            <Title2 className="text-purple">Tokenization Benefices</Title2>
+
+            <div className="md:grid-parent">
+              <div className="col-span-4">
+                <div className="card">
+                  <div className="content">
+                    <ul className="list-token">
+                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-4">
+                <div className="card">
+                  <div className="content">
+                    <ul className="list-token">
+                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-4">
+                <div className="card">
+                  <div className="content">
+                    <ul className="list-token">
+                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Section>
 
           <Section className="s-project" id="s-project">
             <Title2 className="text-purple">The project</Title2>
@@ -117,21 +152,23 @@ export default function Home() {
 
             <div className="md:grid-parent mb-20">
               <figure className="md:col-span-5">
-                <Image src="/building-1.jpeg" alt="Appartment pictur" width="400" height="400" />
+                <Image src="/building-1.jpeg" alt="Appartment picture" width="400" height="400" />
               </figure>
               <div className="md:col-span-4 md:col-start-7 flex flex-col justify-center">
-                <Title3 className="text-purple">A big one</Title3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ducimus magni repudiandae blanditiis autem recusandae eos quod animi temporibus, sint, quaerat dolorem velit natus quae voluptatibus, nemo nisi earum quia.</p>
+                <Title3 className="text-purple">Benalmadena</Title3>
+                <p>Benalmadena is a municipality in the province of Malaga and consists of three main areas: Benalmadena Pueblo, Benalmadena Costa and Arroyo de la Miel. The city of Malaga (and the nearest airport) is about 12 km to the west, and Marbella is 42 km to the east. The area has grown rapidly in recent decades due to tourism and has become one of the Costa del Sol's prime investment areas and holiday spots.</p>
+                <p>Benalmadena enjoys a subtropical Mediterranean climate, with hot summers and warm winters. Cooling breezes from the sea make the summer heat manageable, temperatures are an average of 30 ºC in summer and 17 ºC in winter.</p>
               </div>
             </div>
 
             <div className="md:grid-parent mb-20">
               <div className="md:col-span-4 flex flex-col justify-center">
-                <Title3 className="text-purple">A big one</Title3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ducimus magni repudiandae blanditiis autem recusandae eos quod animi temporibus, sint, quaerat dolorem velit natus quae voluptatibus, nemo nisi earum quia.</p>
+                <Title3 className="text-purple">The location</Title3>
+                <p>Selwo Marina is a sea life park that is home to many plant and animal species from all over the world, including dolphins, penguins, sealions, exotic birds, crocodiles, snakes, piranhas, anacondas, sea rays and much more. What’s more, Selwo Marina is a conservation centre where you can learn about how to respect and protect animals’ natural habitats.</p>
+                <p>Benalmadena Costa has 10kms of beach. From the quiet cove to the family focused beaches with plenty of activities. The beaches are a mixture of man-made, golden sand and shingle, all are generally well maintained and clean. Take relaxing stroll along the Paseo Marítimo and enjoy all that Benalmadena has to offer.</p>
               </div>
               <figure className="md:col-span-5 md:col-start-7">
-                <Image src="/building-1.jpeg" alt="Appartment pictur" width="400" height="400" />
+                <Image src="/building-02.jpeg" alt="Appartment pictur" width="400" height="400" />
               </figure>
             </div>
           </Section>
@@ -187,6 +224,13 @@ export default function Home() {
                   <div className="flex justify-between pt-5">
                       <h4 className="title-xs"><strong>3</strong> Rooms</h4>
                       <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
+                  </div>
+                  <div className="pt-10">
+                    <Button
+                      ariaLabel="Purchase NFT"
+                      className="btn"
+                      value="Purchase NFT"
+                    />
                   </div>
                 </div>
               </div>
@@ -255,13 +299,30 @@ export default function Home() {
 
           <Section className="s-legal" id="s-legal">
             <Title2 className="text-purple">Legals</Title2>
-          </Section>
 
-          
-          <Link href="/about">About Us</Link>
+            <div className="md:grid-parent">
+              <div className="col-span-5">
+                <p className="text-[26px]">Legal and Regulatory Compliance</p>
+                <p>In an ever-evolving regulatory landscape, it is imperative for blockchain-based projects to adhere to the applicable legal framework and maintain a high standard of compliance. TOKENSTATE is committed to ensuring responsible and transparent operations, taking all necessary measures to meet regulatory requirements and safeguard the interests of its users and stakeholders. This section provides an overview of the legal framework and regulatory compliance measures implemented by the project.</p>
+              </div>
+              <div className="col-span-5 col-start-8">
+                <p className="text-[26px]">Overview of the Legal Framework</p>
+                <p>The TOKENSTATE operates within the legal framework of its jurisdiction, adhering to all relevant laws and regulations, including:</p>
+                <ul className="list-legal">
+                  <li>Anti-Money Laundering (AML) and Counter-Terrorist Financing (CTF) regulations</li>
+                  <li>Know Your Customer (KYC) requirements</li>
+                  <li>Data protection and privacy laws</li>
+                  <li>Intellectual property rights and copyright laws</li>
+                </ul>
+              </div>
+            </div> 
+          </Section>
         </Content>        
       </Main>
-      <Footer>Made with ❤️ by <strong>our team</strong> - 2023</Footer>
+
+      <Footer className="bg-purple text-white px-10 py-20">
+        Made with ❤️ by <strong>our team</strong> - 2023
+      </Footer>
     </Container>
   );
 }

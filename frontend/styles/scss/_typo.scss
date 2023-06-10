@@ -111,3 +111,19 @@ section img {
 	height: 48px;
 	margin-bottom: 16px;
 }
+
+.list-legal {
+	list-style-type: disc;
+	padding-left: 16px;
+}
+
+.list-token {
+	@apply text-purple text-[18px];
+
+	svg {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+}

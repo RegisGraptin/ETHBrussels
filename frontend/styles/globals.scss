@@ -56,9 +56,18 @@ section {
       position: relative;
 
       &:before {
-        content: '——— ';
-        padding-right: 10px;
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 1px;
+        border-bottom: 1px solid #FFF;
+        margin-right: 15px;
+        transform: translateY(-5px);
       }
+    }
+
+    h2 {
+      line-height: 1.2;
     }
 
     &:after {
@@ -91,5 +100,9 @@ section {
 }
 
 .s-building {
-
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
 }
