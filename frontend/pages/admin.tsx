@@ -19,9 +19,8 @@ export default function Admin() {
             form.wallet_3.value as string,
         ]
 
-        let contract_address = await deploy_multisig(owners, 3)
-
-        console.log(contract_address)
+        // let contract_address = await deploy_multisig(owners, 3)
+        // console.log(contract_address)
     
     }
   
