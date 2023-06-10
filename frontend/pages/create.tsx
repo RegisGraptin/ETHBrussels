@@ -1,15 +1,12 @@
 import Head from "next/head";
 import { Button, FormGroup, GridCol, GridContainer, GridRow, TextField } from "@taikai/rocket-kit";
-import { useWeb3 } from "../hooks/useWeb3";
 import { Container, Main, NavBar, BrandName, Menu, Footer, SubTitle, Content, Test, Title1, Section } from "../styles/home";
-import ConnectModal from "../components/connect-wallet-modal";
 import React, { FormEvent, useEffect, useState } from 'react';
-import ClickableEthAddress from "../components/clickable-eth-address";
 import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
 
 import { ERC1155Ownable } from '@taikai/dappkit';
 
-export default function About() {
+export default function Create() {
 
 
   async function nftCollection() {
