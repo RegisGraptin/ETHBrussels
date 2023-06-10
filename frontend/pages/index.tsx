@@ -1,16 +1,28 @@
 import Head from "next/head";
 import { Button } from "@taikai/rocket-kit";
 import { useWeb3 } from "../hooks/useWeb3";
-import { Container, Main, NavBar, BrandName, Menu , Footer, Title, SubTitle, Content, Test}  from "../styles/home";
+import { Container, Main, NavBar, BrandName, Menu , Footer, Title1, Title2, Title4, SubTitle, Content, Banner, Section}  from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ClickableEthAddress  from "../components/clickable-eth-address";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
 
   const { connected } = useWeb3();
   const [isConnectModal, setConnectModal] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    console.log('test');
+    
+    window.addEventListener("scroll", () => {
+      console.log('test');
+      setScroll(window.scrollY > 50);
+    });
+  }, []);
+
   return (
     <Container>
       <Head>
@@ -19,8 +31,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar>
-        <BrandName>LayerX Web3 Boilerplate</BrandName>
+      <NavBar className={`g-nav fixed flex justify-between w-full px-10 py-3 z-20 backdrop-blur-md ${scroll ? 'has-scrolled' : ''}`}>
+        <BrandName>Higuerón South Residences</BrandName>
         <Menu>
           {!connected && (
             <Button
@@ -37,23 +49,35 @@ export default function Home() {
       </NavBar>
       {isConnectModal && <ConnectModal onClose={()=> setConnectModal(false)}/>}
       <Main>
-        <Content>
-          <Title>LayerX Web3 Boilerplate</Title>
-          <SubTitle>Web3 Next.js boilerplate project based on 
-            &nbsp;<strong style={{color: "#222"}}>Dappkit</strong>™ + 
-            <strong style={{color: "#222"}}>RocketKit</strong>™&nbsp;  🙌
-          </SubTitle>
+        <Content className="">
+          <Banner className="header-main grid grid-cols-12">
+            <figure className="col-span-6">
+              <iframe title="Youtube video player" src="//www.youtube.com/embed/1u851eyXhBM?autoplay=1&amp;loop=1&amp;playlist=1u851eyXhBM&amp;controls=0&amp;mute=1&amp;iv_load_policy=3&amp;disablekb=1&amp;wmode=transparent&amp;showinfo=0" allowfullscreen="true"  width="100%" height="100%"></iframe>
+            </figure>
+            <div className="col-span-4 col-start-8 flex flex-col justify-center text-center">
+              <Title1>A new world, feel it</Title1>
+              <Title2>A NEW WAY OF LIVING LIFE</Title2>
+            </div>
+          </Banner>
 
-          <div className="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
-            <p className="p-4 rounded-lg shadow-lg bg-slate-500">test</p>
-            <Link href="/about">About Us</Link><p className="p-4 rounded-lg shadow-lg bg-slate-500">test</p>
-            <p className="p-4 rounded-lg shadow-lg bg-fuchsia-500">test</p>
-            <p className="p-4 rounded-lg shadow-lg bg-fuchsia-500">test</p>
-          </div>
+          <Section className="s-who grid grid-cols-12">
+            <div className="col-span-4">
+              <Title2>Tipologías</Title2>
+
+              <p>El diseño de South Residences está inspirado en Higuerón Hotel ya que sigue la misma línea vanguardista y utiliza materiales sostenibles como el acero cortén, la piedra y la madera.</p>
+              <p>Las viviendas estarán numeradas como si de un hotel se tratase y esto no es casualidad. Las personas que compren una vivienda en South Residences podrán disfrutar de servicios exclusivos de la mano de Higuerón Hotel Curio Collection by Hilton 5*.</p>
+              <p>El arte es un pilar fundamental de este proyecto. Los propietarios vivirán rodeados de piezas exclusivas como si de una galería se tratase. Además, los 4 bloques toman el nombre de artistas contemporáneos reconocidos como Leiro, Brinkmann, Darko y Alfil.</p>
+            </div>
+            <div className="col-span-3 col-start-8 flex flex-col justify-center text-center">
+              <Image src="/sitting-1.svg" alt="me" width="100" height="100" />
+            </div>
+          </Section>
+
+          
+          <Link href="/about">About Us</Link>
         </Content>        
       </Main>
-      <Test>test</Test>
-      <Footer>Made with ❤️ by <strong>LayerX</strong> - 2023</Footer>
+      <Footer>Made with ❤️ by <strong>our team</strong> - 2023</Footer>
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import React from 'react';
 import {DappkitProviderCtx, defaulDappkitProvider} from '../context';
 
 function MyApp({ Component, pageProps }: AppProps) {
- 
+
   return (
     <DappkitProviderCtx.Provider value={defaulDappkitProvider}>
         <Component {...pageProps} />

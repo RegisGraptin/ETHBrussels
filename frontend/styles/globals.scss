@@ -2,32 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-// @import 'scss/test.scss';
-
-html,
-body {
-  
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import 'scss/typo';
 
 * {
   box-sizing: border-box;
 }
 
-div#__next {
-    height: 100%;
+main {
+  position: relative;
+  display: block;
+  max-width: 1280px;
+  margin: 0 auto;
+  @apply px-10;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.g-nav {
+  h1 {
+    font-size: 18px;
+    mbà 
   }
-  body {
-    color: white;
-    background: black;
+}
+
+.header-main {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  figure {
+    position: relative;
+    display: block;
+    height: calc(100vh - 80px);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+
+    img, iframe {
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: scale(1.6);
+      pointer-events: none;
+    }
+  }
+}
+
+.s-who {
+  img {
+    width: 100%;
+    height: auto;
   }
 }

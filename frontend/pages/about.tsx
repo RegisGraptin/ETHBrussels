@@ -1,15 +1,16 @@
 import Head from "next/head";
 import { Button } from "@taikai/rocket-kit";
 import { useWeb3 } from "../hooks/useWeb3";
-import { Container, Main, NavBar, BrandName, Menu , Footer, Title, SubTitle, Content, Test}  from "../styles/home";
+import { Container, Main, NavBar, BrandName, Menu , Footer, SubTitle, Content, Test}  from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ClickableEthAddress  from "../components/clickable-eth-address";
 
 export default function About() {
 
   const { connected } = useWeb3();
   const [isConnectModal, setConnectModal] = useState(false);
+
   return (
     <Container>
       <Head>
@@ -37,7 +38,6 @@ export default function About() {
       {isConnectModal && <ConnectModal onClose={()=> setConnectModal(false)}/>}
       <Main>
         <Content>
-          <Title>LayerX Web3 Boilerplate</Title>
           <SubTitle>Web3 Next.js boilerplate project based on 
             &nbsp;<strong style={{color: "#222"}}>Dappkit</strong>™ + 
             <strong style={{color: "#222"}}>RocketKit</strong>™&nbsp;  🙌
