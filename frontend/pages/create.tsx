@@ -210,7 +210,7 @@ export default function Create() {
                 className="pt-5"
                 value="Create new property"
                 variant="solid"
-                action={() => createCollectionNFT()}
+                // action={() => createCollectionNFT()}
               />
 
             </form>
