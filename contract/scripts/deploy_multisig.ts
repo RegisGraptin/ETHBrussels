@@ -2,7 +2,7 @@ const { ethers, tenderly } = require("hardhat");
 
 require('dotenv').config({ path: __dirname + '/.env' })
 
-async function deploy_multisig(owners: string[], number_of_verification: number) {
+export async function deploy_multisig(owners: string[], number_of_verification: number) {
   /**
    * owners : list of public key owners
    * number_of_verification: minimum number of people to accept a transaction
