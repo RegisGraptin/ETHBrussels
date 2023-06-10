@@ -22,6 +22,16 @@
 	}
 
 	p {
-		margin-bottom: 0;
+		opacity: 0.75;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.s-market {
+	.card p {
+		font-size: 14px;
 	}
 }

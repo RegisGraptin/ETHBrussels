@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Playfair+Display&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
@@ -25,6 +32,16 @@ h3 {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.title-xs {
+	text-transform: uppercase;
+	font-size: 11px;
+	margin-bottom: 0;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	font-family: 'Open Sans', sans-serif;
+	@apply text-purple;
+}
+
 p {
 	margin-bottom: 20px;
 }
@@ -32,4 +49,58 @@ p {
 section img {
 	width: 100%;
 	height: auto;
+}
+
+.pill {
+	@apply bg-purple text-white;
+	padding: 6px 12px;
+	border-radius: 24px;
+	display: inline-block;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.btn.btn-secondary {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5rem;
+	padding: 0 1.75rem;
+	border: 1px solid;
+	min-width: 5rem;
+	height: 2.625rem;
+	@apply border-purple text-purple uppercase;
+	font-size: 130px !important;
+	font-weight: 500;
+}
+
+.g-nav {
+	&__menu {
+		position: relative;
+		display: flex;
+
+		a {
+			position: relative;
+			display: inline-block;
+
+			&:hover {
+				font-weight: 500;
+
+				&:after {
+					position: absolute;
+					content: '';
+					left: 0;
+					bottom: -2px;
+					width: 100%;
+					height: 1px;
+					border-bottom: 1px solid currentColor;
+				}
+			}
+
+			&:not(:last-child) {
+				@apply mr-5;
+			}
+		}
+	}
 }
