@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 @import 'scss/typo';
+@import 'scss/misc';
+@import 'scss/components';
 
 * {
   box-sizing: border-box;
+}
+
+.btn {
+  font-size: 10px !important;
 }
 
 main {
@@ -13,7 +19,6 @@ main {
   display: block;
   max-width: 1280px;
   margin: 0 auto;
-  @apply px-10;
 }
 
 .g-nav {
@@ -23,31 +28,67 @@ main {
   }
 }
 
+.btn span {
+  font-size: 10px !important;
+}
+
+section {
+  @apply px-10 py-14;
+}
+
 .header-main {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+  height: 96vh;
+
+  &__content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    z-index: 2;
+    @apply px-10;
+
+    h3 {
+      position: relative;
+
+      &:before {
+        content: '——— ';
+        padding-right: 10px;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      @apply -left-10;
+      z-index: -1;
+    }
+  }
 
   figure {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: block;
-    height: calc(100vh - 80px);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    overflow: hidden;
 
-    img, iframe {
+    video {
       display: block;
       height: 100%;
       width: 100%;
-      transform: scale(1.6);
+      object-fit: cover;
       pointer-events: none;
     }
   }
 }
 
-.s-who {
-  img {
-    width: 100%;
-    height: auto;
-  }
+.s-building {
+
 }

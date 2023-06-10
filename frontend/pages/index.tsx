@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Button } from "@taikai/rocket-kit";
 import { useWeb3 } from "../hooks/useWeb3";
-import { Container, Main, NavBar, BrandName, Menu , Footer, Title1, Title2, Title4, SubTitle, Content, Banner, Section}  from "../styles/home";
+import { Container, Main, NavBar, BrandName, Menu , Footer, Title1, Title2, Title3, Title4, SubTitle, Content, Banner, Section}  from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
 import React, { useEffect, useState } from 'react';
 import ClickableEthAddress  from "../components/clickable-eth-address";
@@ -19,7 +19,7 @@ export default function Home() {
     
     window.addEventListener("scroll", () => {
       console.log('test');
-      setScroll(window.scrollY > 50);
+      setScroll(window.scrollY > window.innerHeight);
     });
   }, []);
 
@@ -31,15 +31,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar className={`g-nav fixed flex justify-between w-full px-10 py-3 z-20 backdrop-blur-md ${scroll ? 'has-scrolled' : ''}`}>
-        <BrandName>Higuerón South Residences</BrandName>
+      <NavBar className={`g-nav fixed flex items-center justify-between w-full px-10 py-3 z-20 backdrop-blur-md ${scroll ? 'text-black' : 'text-white'}`}>
+        <BrandName className="!mb-0">Higuerón South Residences</BrandName>
         <Menu>
           {!connected && (
             <Button
-              ariaLabel="Connect"
-              className="button"
-              color="green"
-              value="Connect"
+              ariaLabel="Connect your wallet"
+              className="btn"
+              value="Connect your wallet"
               variant="solid"
               action={()=> setConnectModal(true)}
             />
@@ -50,28 +49,93 @@ export default function Home() {
       {isConnectModal && <ConnectModal onClose={()=> setConnectModal(false)}/>}
       <Main>
         <Content className="">
-          <Banner className="header-main grid grid-cols-12">
-            <figure className="col-span-6">
-              <iframe title="Youtube video player" src="//www.youtube.com/embed/1u851eyXhBM?autoplay=1&amp;loop=1&amp;playlist=1u851eyXhBM&amp;controls=0&amp;mute=1&amp;iv_load_policy=3&amp;disablekb=1&amp;wmode=transparent&amp;showinfo=0" allowfullscreen="true"  width="100%" height="100%"></iframe>
+          <Banner className="header-main">
+            <figure>
+              <video src="/video-intro.mp4" autoPlay muted loop></video>
             </figure>
-            <div className="col-span-4 col-start-8 flex flex-col justify-center text-center">
-              <Title1>A new world, feel it</Title1>
-              <Title2>A NEW WAY OF LIVING LIFE</Title2>
+
+            <div className="header-main__content">
+              <Title3 className="title-sm">A NEW WAY OF LIVING LIFE</Title3>
+              <Title2>A new world, feel it</Title2>
             </div>
           </Banner>
 
-          <Section className="s-who grid grid-cols-12">
-            <div className="col-span-4">
-              <Title2>Tipologías</Title2>
+          <Section className="s-project">
+            <Title2 className="text-purple">The project</Title2>
 
-              <p>El diseño de South Residences está inspirado en Higuerón Hotel ya que sigue la misma línea vanguardista y utiliza materiales sostenibles como el acero cortén, la piedra y la madera.</p>
-              <p>Las viviendas estarán numeradas como si de un hotel se tratase y esto no es casualidad. Las personas que compren una vivienda en South Residences podrán disfrutar de servicios exclusivos de la mano de Higuerón Hotel Curio Collection by Hilton 5*.</p>
-              <p>El arte es un pilar fundamental de este proyecto. Los propietarios vivirán rodeados de piezas exclusivas como si de una galería se tratase. Además, los 4 bloques toman el nombre de artistas contemporáneos reconocidos como Leiro, Brinkmann, Darko y Alfil.</p>
+            <div className="md:grid-parent">
+            <div className="card col-span-4">
+                <div className="content">
+                  <h2>title here</h2>
+                  <p>El diseño de South Residences está inspirado en Higuerón Hotel ya que sigue la misma línea vanguardista y utiliza materiales sostenibles como el acero cortén, la piedra y la madera.</p>
+                </div>
+              </div>
+              <div className="card col-span-4">
+                <div className="content">
+                  <h2>title here</h2>
+                  <p>El diseño de South Residences está inspirado en Higuerón Hotel ya que sigue la misma línea vanguardista y utiliza materiales sostenibles como el acero cortén, la piedra y la madera.</p>
+                </div>
+              </div>
+              <div className="card col-span-4">
+                <div className="content">
+                  <h2>title here</h2>
+                  <p>El diseño de South Residences está inspirado en Higuerón Hotel ya que sigue la misma línea vanguardista y utiliza materiales sostenibles como el acero cortén, la piedra y la madera.</p>
+                </div>
+              </div>
             </div>
+
+
             <div className="col-span-3 col-start-8 flex flex-col justify-center text-center">
-              <Image src="/sitting-1.svg" alt="me" width="100" height="100" />
+              
             </div>
           </Section>
+
+          <Section className="s-project">
+            <Title2 className="text-purple">The Building</Title2>
+
+            <div className="md:grid-parent mb-20">
+              <figure className="md:col-span-5">
+                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+              </figure>
+              <div className="md:col-span-4 md:col-start-7 flex flex-col justify-center">
+                <Title3 className="text-purple">A big one</Title3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ducimus magni repudiandae blanditiis autem recusandae eos quod animi temporibus, sint, quaerat dolorem velit natus quae voluptatibus, nemo nisi earum quia.</p>
+              </div>
+            </div>
+
+            <div className="md:grid-parent mb-20">
+              <div className="md:col-span-4 flex flex-col justify-center">
+                <Title3 className="text-purple">A big one</Title3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ducimus magni repudiandae blanditiis autem recusandae eos quod animi temporibus, sint, quaerat dolorem velit natus quae voluptatibus, nemo nisi earum quia.</p>
+              </div>
+              <figure className="md:col-span-5 md:col-start-7">
+                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+              </figure>
+            </div>
+          </Section>
+
+          <section className="s-market">
+            <div className="text-center mb-10">
+            <Title2 className="text-purple mb-1">The market</Title2>
+            <p>Invest in the appartments by buying NFTs sharehold.</p>
+            </div>
+
+            <div className="md:grid-parent mb-20">
+              <div className="card col-span-4">
+                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                <div className="content">
+                  <p>content here</p>
+                </div>
+              </div>
+              <div className="card col-span-4">
+                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                <div className="content">
+                  <p>content here</p>
+                </div>
+              </div>
+              
+            </div>
+          </section>
 
           
           <Link href="/about">About Us</Link>
