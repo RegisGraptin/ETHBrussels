@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { Button } from "@taikai/rocket-kit";
+import { Button, FormGroup, GridCol, GridContainer, GridRow, TextField } from "@taikai/rocket-kit";
 import { useWeb3 } from "../hooks/useWeb3";
-import { Container, Main, NavBar, BrandName, Menu , Footer, SubTitle, Content, Test, Title1}  from "../styles/home";
+import { Container, Main, NavBar, BrandName, Menu, Footer, SubTitle, Content, Test, Title1 } from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
 import React, { useEffect, useState } from 'react';
-import ClickableEthAddress  from "../components/clickable-eth-address";
+import ClickableEthAddress from "../components/clickable-eth-address";
 import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
 
 import { ERC1155Ownable } from '@taikai/dappkit';
@@ -16,21 +16,21 @@ export default function About() {
 
     let MULTISIG_CONTRACT = "0xc5EF893518208119968B294eE95d341C48c0f2e0";
 
-    const web3Connection = new Web3Connection({ 
-        web3Host: 'http://127.0.0.1:7545'
+    const web3Connection = new Web3Connection({
+      web3Host: 'http://127.0.0.1:7545'
     });
-    
+
     await web3Connection.start();
     await web3Connection.connect();
     const deployer = new ERC1155Standard(web3Connection);
-    
+
     await deployer.loadAbi();
     const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
 
     /* Instantiate and use your new ERC1155 Token Contract*/
     const erc1155Contract = new ERC1155Standard(web3Connection, tx.contractAddress);
     await erc1155Contract.start();
-    
+
     erc1155Contract.mint(MULTISIG_CONTRACT, 0, 1000, '0x00');
     console.log(erc1155Contract);
 
@@ -38,13 +38,13 @@ export default function About() {
 
 
   async function deployERC1155() {
-    
-    const web3Connection = new Web3Connection({ 
+
+    const web3Connection = new Web3Connection({
       web3Host: 'http://127.0.0.1:7545'
     });
 
     await web3Connection.start();
-    await web3Connection.connect(); 
+    await web3Connection.connect();
 
     /* Create an ERC1155Ownable Deployer */
     const deployer = new ERC1155Ownable(web3Connection);
@@ -52,60 +52,42 @@ export default function About() {
     /* Deploy the ERC1155 Contract */
     await deployer.loadAbi();
     const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
-    
+
     /* Instantiate and use your new ERC1155 Token Contract*/
     const erc1155Contract = new ERC1155Ownable(web3Connection, tx.contractAddress);
     await erc1155Contract.start();
 
     erc1155Contract.mint('0xTO_ADDRESS', 0, 1000, '0x12345678');
 
-
-
-
-
-
   }
 
+  async function createCollectionNFT() {
 
+    const web3Connection = new Web3Connection({ 
+      web3Host: 'http://127.0.0.1:7545'
+    });
 
-  // async function collectionNFT() {
+    await web3Connection.start();
+    await web3Connection.connect();
 
-  //   const web3Connection = new Web3Connection({ 
-  //     web3Host: 'http://127.0.0.1:7545'
-  //   });
-    
-  //   await web3Connection.start();
-  //   await web3Connection.connect();
-    
+    const erc721Collectibles = new ERC721Collectibles(web3Connection);
 
+    await erc721Collectibles.loadAbi();
 
-  //   const erc721Collectibles = new ERC721Collectibles(web3Connection);
-    
-  //   await erc721Collectibles.loadAbi();
-    
-  //   // Deploy
-  //   const transactionReceipt = await erc721Collectibles.deployJsonAbi(
-  //       "Art | BEPRO",
-  //       "B.E.P.R.O",
-  //       1000,
-  //       "0xc5EF893518208119968B294eE95d341C48c0f2e0",
-  //       "0xc5EF893518208119968B294eE95d341C48c0f2e0",
-  //       "0x00",
-  //       "0xc5EF893518208119968B294eE95d341C48c0f2e0" 
-  //    );
+    // Deploy
+    const transactionReceipt = await erc721Collectibles.deployJsonAbi(
+        "Building #3304",
+        "RealState",
+        1000,
+        "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xDAI_ADDRESS",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", //     "0xPURCHASE_TOKEN" - UDSC 
+        "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xBASE_FEE_ADDRESS",
+        "0xc5EF893518208119968B294eE95d341C48c0f2e0"  //     "0xOTHER_ADDRESS" 
+     );
 
-  //   //     "0xDAI_ADDRESS",
-  //   //     "0xPURCHASE_TOKEN",
-  //   //     "0xBASE_FEE_ADDRESS",
-  //   //     "0xOTHER_ADDRESS" 
-    
-  //   console.log(transactionReceipt);
+    console.log(transactionReceipt);
 
-  // }
-
-
-  const { connected } = useWeb3();
-  const [isConnectModal, setConnectModal] = useState(false);
+  }
 
   return (
     <Container>
@@ -117,22 +99,94 @@ export default function About() {
       </Head>
       <Main>
         <Content>
-          <Title1>Create a new building</Title1>
+          <Title1>Create a new building - NFT</Title1>
+
+          <GridContainer>
+            <GridRow className="pt-5 pb-5">
+              <GridCol>
+                <FormGroup label="address">
+                  <TextField
+                    placeholder="Address of the property"
+                  />
+                </FormGroup>
+              </GridCol>
+              <GridCol>
+                <FormGroup label="property">
+                  <TextField
+                    placeholder="Type of property"
+                  />
+                </FormGroup>
+              </GridCol>
+            </GridRow>
             
+            <GridRow className="pb-5">
+              <GridCol>
+                <FormGroup label="size">
+                  <TextField
+                    placeholder="Size"
+                  />
+                </FormGroup>
+
+
+              </GridCol>
+              <GridCol>
+                <FormGroup label="nb_room">
+                  <TextField
+                    placeholder="Number of rooms"
+                  />
+                </FormGroup>
+
+              </GridCol>
+            </GridRow>
+
+            <GridRow className="pb-5">
+              <GridCol>
+                <FormGroup label="condition">
+                  <TextField
+                    placeholder="Condition: New construction"
+                  />
+                </FormGroup>
+              </GridCol>
+              <GridCol>
+                <FormGroup label="Year build">
+                  <TextField
+                    minimal
+                    name="year-build"
+                    type="date"
+                  />
+                </FormGroup>
+              </GridCol>
+            </GridRow>
+
+            <GridRow className="pb-5">
+              <GridCol>
+                
+                <FormGroup label="price">
+                  <TextField
+                    max={1000000000}
+                    min={1}
+                    name="price"
+                    placeholder="Initial price"
+                    type="number"
+                  />
+                </FormGroup>
+
+              </GridCol>
+            </GridRow>
+
+          </GridContainer>
 
           <Button
-              ariaLabel="Connect"
-              className="button"
-              color="green"
-              value="Connect"
-              variant="solid"
-              action={() => nftCollection()}
-            />
+            ariaLabel="Connect"
+            className="pt-5"
+            color="green"
+            value="Create new property"
+            variant="solid"
+            action={() => createCollectionNFT()}
+          />
 
-        </Content>        
+        </Content>
       </Main>
-      <Test>test</Test>
-      <Footer>Made with ❤️ by <strong>LayerX</strong> - 2023</Footer>
     </Container>
   );
 }
