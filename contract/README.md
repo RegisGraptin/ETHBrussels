@@ -1,7 +1,11 @@
 
+# Deploy a multisig contract
 
-# Run the owner --> Multi sig contract
+Deploy a contract with multiple owner. This allow the possibility to execute transactions only if enough owners accept the transaction.
 
-npx hardhat run scripts/owners.ts
+> Demo execution
+npx hardhat run scripts/deploy_multisig.ts
 
 
+## References
+- https://github.com/Tenderly/tenderly-examples
