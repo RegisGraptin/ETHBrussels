@@ -123,7 +123,7 @@ export default function About() {
       <Main>
         <Content>
           <Section>
-            <Title1 className="text-purple text-[46px] ml-[20px]">Create a new building - NFT</Title1>
+            <Title1 className="text-purple text-[46px] ml-[20px] mb-0">Create a new building - NFT</Title1>
 
             <form onSubmit={handleSubmit}>
 
