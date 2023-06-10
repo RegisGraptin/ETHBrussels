@@ -3,7 +3,7 @@ import { Button, FormGroup, GridCol, GridContainer, GridRow, TextField } from "@
 import { useWeb3 } from "../hooks/useWeb3";
 import { Container, Main, NavBar, BrandName, Menu, Footer, SubTitle, Content, Test, Title1 } from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import ClickableEthAddress from "../components/clickable-eth-address";
 import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
 
@@ -63,7 +63,7 @@ export default function About() {
 
   async function createCollectionNFT() {
 
-    const web3Connection = new Web3Connection({ 
+    const web3Connection = new Web3Connection({
       web3Host: 'http://127.0.0.1:7545'
     });
 
@@ -76,16 +76,39 @@ export default function About() {
 
     // Deploy
     const transactionReceipt = await erc721Collectibles.deployJsonAbi(
-        "Building #3304",
-        "RealState",
-        1000,
-        "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xDAI_ADDRESS",
-        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", //     "0xPURCHASE_TOKEN" - UDSC 
-        "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xBASE_FEE_ADDRESS",
-        "0xc5EF893518208119968B294eE95d341C48c0f2e0"  //     "0xOTHER_ADDRESS" 
-     );
+      "Building #3304",
+      "RealState",
+      1000,
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xDAI_ADDRESS",
+      "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", //     "0xPURCHASE_TOKEN" - UDSC 
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xBASE_FEE_ADDRESS",
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0"  //     "0xOTHER_ADDRESS" 
+    );
 
     console.log(transactionReceipt);
+
+  }
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault()
+    const form = event.target as HTMLFormElement
+
+    const data = {
+      address: form.address.value as string,
+      property: form.property.value as string,
+      size: form.size.value as string,
+      nb_room: form.nb_room.value as string,
+      condition: form.condition.value as string,
+      year_build: form.year_build.value as string,
+      price: form.price.value as string,
+    }
+
+    console.log(data);
+
+    // Send the metadata to IPFS
+    // Create the contract from this json
+    // Get the contract address
+    // Mint the NFT
 
   }
 
@@ -101,89 +124,99 @@ export default function About() {
         <Content>
           <Title1>Create a new building - NFT</Title1>
 
-          <GridContainer>
-            <GridRow className="pt-5 pb-5">
-              <GridCol>
-                <FormGroup label="address">
-                  <TextField
-                    placeholder="Address of the property"
-                  />
-                </FormGroup>
-              </GridCol>
-              <GridCol>
-                <FormGroup label="property">
-                  <TextField
-                    placeholder="Type of property"
-                  />
-                </FormGroup>
-              </GridCol>
-            </GridRow>
-            
-            <GridRow className="pb-5">
-              <GridCol>
-                <FormGroup label="size">
-                  <TextField
-                    placeholder="Size"
-                  />
-                </FormGroup>
+          <form onSubmit={handleSubmit}>
+
+            <GridContainer>
+              <GridRow className="pt-5 pb-5">
+                <GridCol>
+                  <FormGroup label="address">
+                    <TextField 
+                      name="address"
+                      placeholder="Address of the property"
+
+                    />
+                  </FormGroup>
+                </GridCol>
+                <GridCol>
+                  <FormGroup label="property">
+                    <TextField 
+                      name="property"
+                      placeholder="Type of property"
+                    />
+                  </FormGroup>
+                </GridCol>
+              </GridRow>
+
+              <GridRow className="pb-5">
+                <GridCol>
+                  <FormGroup label="size">
+                    <TextField
+                      name="size"
+                      placeholder="Size"
+                    />
+                  </FormGroup>
 
 
-              </GridCol>
-              <GridCol>
-                <FormGroup label="nb_room">
-                  <TextField
-                    placeholder="Number of rooms"
-                  />
-                </FormGroup>
+                </GridCol>
+                <GridCol>
+                  <FormGroup label="nb_room">
+                    <TextField
+                      name="nb_room"
+                      placeholder="Number of rooms"
+                    />
+                  </FormGroup>
 
-              </GridCol>
-            </GridRow>
+                </GridCol>
+              </GridRow>
 
-            <GridRow className="pb-5">
-              <GridCol>
-                <FormGroup label="condition">
-                  <TextField
-                    placeholder="Condition: New construction"
-                  />
-                </FormGroup>
-              </GridCol>
-              <GridCol>
-                <FormGroup label="Year build">
-                  <TextField
-                    minimal
-                    name="year-build"
-                    type="date"
-                  />
-                </FormGroup>
-              </GridCol>
-            </GridRow>
+              <GridRow className="pb-5">
+                <GridCol>
+                  <FormGroup label="condition">
+                    <TextField
+                    name="condition"
+                      placeholder="Condition: New construction"
+                    />
+                  </FormGroup>
+                </GridCol>
+                <GridCol>
+                  <FormGroup label="Year build">
+                    <TextField
+                      minimal
+                      name="year_build"
+                      type="date"
+                    />
+                  </FormGroup>
+                </GridCol>
+              </GridRow>
 
-            <GridRow className="pb-5">
-              <GridCol>
-                
-                <FormGroup label="price">
-                  <TextField
-                    max={1000000000}
-                    min={1}
-                    name="price"
-                    placeholder="Initial price"
-                    type="number"
-                  />
-                </FormGroup>
+              <GridRow className="pb-5">
+                <GridCol>
 
-              </GridCol>
-            </GridRow>
+                  <FormGroup label="price">
+                    <TextField
+                      max={1000000000}
+                      min={1}
+                      name="price"
+                      placeholder="Initial price"
+                      type="number"
+                    />
+                  </FormGroup>
 
-          </GridContainer>
+                </GridCol>
+              </GridRow>
 
-          <Button
-            ariaLabel="Connect"
-            className="pt-5"
-            color="green"
-            value="Create new property"
-            variant="solid"
-            action={() => createCollectionNFT()}
-          />
+            </GridContainer>
+
+            <Button
+              ariaLabel="Connect"
+              className="pt-5"
+              color="green"
+              value="Create new property"
+              variant="solid"
+              action={() => createCollectionNFT()}
+            />
+
+          </form>
 
         </Content>
       </Main>
