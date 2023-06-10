@@ -118,7 +118,24 @@ section img {
 }
 
 .list-token {
-	@apply text-purple text-[18px];
+	// @apply text-purple text-[18px];
+
+	.card {
+		height: 100%;
+	}
+
+	li {
+		margin-bottom: 20px;
+	}
+
+	.title-token {
+		font-weight: 500;
+		@apply text-purple;
+		font-size: 16px;
+		letter-spacing: 0.4px;
+		text-transform: uppercase;
+
+	}
 
 	svg {
 		display: inline-block;

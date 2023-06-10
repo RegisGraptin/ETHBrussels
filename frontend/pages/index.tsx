@@ -53,14 +53,17 @@ export default function Home() {
           </Banner>
 
           <Section className="s-token" id="s-token">
-            <Title2 className="text-purple">Tokenization Benefices</Title2>
+            <Title2 className="text-purple">Benefits of Tokenization</Title2>
 
             <div className="md:grid-parent">
               <div className="col-span-4">
                 <div className="card">
                   <div className="content">
                     <ul className="list-token">
-                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                      <li className="title-token">Efficiency</li>
+                      <li><Icon icon="check" fill="#4329A6" />Digitalization and automation of process.</li>
+                      <li><Icon icon="check" fill="#4329A6" />Automated compliance and governance.</li>
+                      <li><Icon icon="check" fill="#4329A6" />Elimination of Human errors.</li>
                     </ul>
                   </div>
                 </div>
@@ -69,7 +72,10 @@ export default function Home() {
                 <div className="card">
                   <div className="content">
                     <ul className="list-token">
-                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                      <li className="title-token">Features</li>
+                      <li><Icon icon="check" fill="#4329A6" />Greater Liquidity</li>
+                      <li><Icon icon="check" fill="#4329A6" />Fractional ownership / democratization.</li>
+                      <li><Icon icon="check" fill="#4329A6" />Accessibility</li>
                     </ul>
                   </div>
                 </div>
@@ -78,7 +84,10 @@ export default function Home() {
                 <div className="card">
                   <div className="content">
                     <ul className="list-token">
-                      <li><Icon icon="check" fill="#4329A6" /> test here :)</li>
+                      <li className="title-token">Benefits</li>
+                      <li><Icon icon="check" fill="#4329A6" />Intangible benefits.</li>
+                      <li><Icon icon="check" fill="#4329A6" />Record of transactions.</li>
+                      <li><Icon icon="check" fill="#4329A6" />Transparency</li>
                     </ul>
                   </div>
                 </div>
@@ -148,7 +157,7 @@ export default function Home() {
           </Section>
 
           <Section className="s-building" id="s-building">
-            <Title2 className="text-purple">The Building</Title2>
+            <Title2 className="text-purple">The building</Title2>
 
             <div className="md:grid-parent mb-20">
               <figure className="md:col-span-5">
@@ -297,16 +306,14 @@ export default function Home() {
             </div>
           </Section>
 
-          <Section className="s-legal" id="s-legal">
-            <Title2 className="text-purple">Legals</Title2>
+          <Section className="s-legal py-40" id="s-legal">
+            <Title2 className="text-purple">Legal and Regulatory Compliance</Title2>
 
             <div className="md:grid-parent">
               <div className="col-span-5">
-                <p className="text-[26px]">Legal and Regulatory Compliance</p>
                 <p>In an ever-evolving regulatory landscape, it is imperative for blockchain-based projects to adhere to the applicable legal framework and maintain a high standard of compliance. TOKENSTATE is committed to ensuring responsible and transparent operations, taking all necessary measures to meet regulatory requirements and safeguard the interests of its users and stakeholders. This section provides an overview of the legal framework and regulatory compliance measures implemented by the project.</p>
               </div>
               <div className="col-span-5 col-start-8">
-                <p className="text-[26px]">Overview of the Legal Framework</p>
                 <p>The TOKENSTATE operates within the legal framework of its jurisdiction, adhering to all relevant laws and regulations, including:</p>
                 <ul className="list-legal">
                   <li>Anti-Money Laundering (AML) and Counter-Terrorist Financing (CTF) regulations</li>
