@@ -27,6 +27,10 @@
   @variants responsive {
     .grid-parent {
       @apply grid grid-cols-12 gap-10;
+
+			&.spacing-big {
+				@apply gap-16;
+			}
     }
   }
 }

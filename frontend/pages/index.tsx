@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Button } from "@taikai/rocket-kit";
+import { Button, Icon } from "@taikai/rocket-kit";
 import { useWeb3 } from "../hooks/useWeb3";
 import { Container, Main, NavBar, BrandName, Menu , Footer, Title1, Title2, Title3, Title4, SubTitle, Content, Banner, Section}  from "../styles/home";
 import ConnectModal from "../components/connect-wallet-modal";
@@ -15,10 +15,7 @@ export default function Home() {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
-    console.log('test');
-    
     window.addEventListener("scroll", () => {
-      console.log('test');
       setScroll(window.scrollY > window.innerHeight * 0.9);
     });
   }, []);
@@ -56,39 +53,57 @@ export default function Home() {
           <Section className="s-project" id="s-project">
             <Title2 className="text-purple">The project</Title2>
 
-            <div className="md:grid-parent">
+            <div className="md:grid-parent spacing-big">
             <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="share" fill="#4329A6" />
+                  </div>
                   <h2>Blockchain Technology</h2>
                   <p>A secure system safeguarding data and transactions, ensuring integrity and security.</p> 
                 </div>
               </div>
               <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="rules" fill="#4329A6" />
+                  </div>
                   <h2>Greater Transparency</h2>
                   <p>Security tokens embed ownership rights, responsibilities, and history, ensuring unchangeable ownership.</p>
                 </div>
               </div>
               <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="trophy" fill="#4329A6" />
+                  </div>
                   <h2>Increased Liquidity</h2>
                   <p>Tokenization facilitates easier trade of assets like private securities or real estate, expanding investor pool and asset value.</p>
                 </div>
               </div>
               <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="language" fill="#4329A6" />
+                  </div>
                   <h2>Globalization</h2>
                   <p>Tokenization could normalize global trading of physical assets, creating new markets and enabling direct, quick asset exchange worldwide.</p>
                 </div>
               </div>
               <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="addMember" fill="#4329A6" />
+                  </div>
                   <h2>Reduced Barriers To Entry</h2>
                   <p>Tokenization lowers minimum investment amounts and periods, making investment more accessible and flexible.</p>
                 </div>
               </div>
               <div className="card col-span-4">
                 <div className="content">
+                  <div className="icon-card">
+                    <Icon icon="security" fill="#4329A6" />
+                  </div>
                   <h2>Protect Brand Reputation</h2>
                   <p>Tokenization ensures product quality standards, fostering customer trust and maintaining brand reputation.</p>
                 </div>
@@ -134,7 +149,14 @@ export default function Home() {
                   />
                 )}
                 {connected && <ClickableEthAddress onClick={()=> setConnectModal(true)}/>}
-                <a href="https://support.metamask.io/hc/en-us/articles/360015489531-Getting-started-with-MetaMask" target="_blank" className="btn btn-secondary ml-5"><span>Create a wallet</span></a>
+                <a href="https://support.metamask.io/hc/en-us/articles/360015489531-Getting-started-with-MetaMask" target="_blank" rel="noreferrer" className="btn btn-secondary ml-5">
+                  <span className="flex justify-center">
+                    <span style={{ height: '14px', width: '14px', display: 'inline-block', marginRight: '6px' }}>
+                      <Icon icon="metamask" fill="#4329A6" />
+                    </span>
+                    Create a wallet
+                  </span>
+                </a>
               </div>
             </div>
 

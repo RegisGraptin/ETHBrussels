@@ -9,7 +9,7 @@ const useERC20Balance = (
 ): {
   loading: boolean;
   error: string | null;
-  balance: number;
+  balance: number | string;
 } => {
   const proxy = useContext(DappkitProviderCtx);
 
@@ -27,7 +27,7 @@ const useERC20Balance = (
 
   const { loading, error, result, execute } = useAsync(executeFunc, false);
 
-  return { loading, error, balance: result ? result : 0 };
+  return { loading, error, balance : result ? result : 0 };
 };
 
 export default useERC20Balance;
