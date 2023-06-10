@@ -34,6 +34,7 @@ export default function Home() {
           <a href="#s-project" className="is-active">Project</a>
           <a href="#s-building">Building</a>
           <a href="#s-market">Market</a>
+          <a href="#s-legal">Legals</a>
         </Menu>
       </NavBar>
       {isConnectModal && <ConnectModal onClose={()=> setConnectModal(false)}/>}
@@ -116,7 +117,7 @@ export default function Home() {
 
             <div className="md:grid-parent mb-20">
               <figure className="md:col-span-5">
-                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                <Image src="/building-1.jpeg" alt="Appartment pictur" width="400" height="400" />
               </figure>
               <div className="md:col-span-4 md:col-start-7 flex flex-col justify-center">
                 <Title3 className="text-purple">A big one</Title3>
@@ -130,7 +131,7 @@ export default function Home() {
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ducimus magni repudiandae blanditiis autem recusandae eos quod animi temporibus, sint, quaerat dolorem velit natus quae voluptatibus, nemo nisi earum quia.</p>
               </div>
               <figure className="md:col-span-5 md:col-start-7">
-                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                <Image src="/building-1.jpeg" alt="Appartment pictur" width="400" height="400" />
               </figure>
             </div>
           </Section>
@@ -161,14 +162,14 @@ export default function Home() {
             </div>
 
             <div className="md:grid-parent mb-20">
-
+              {/* Building 01 */}
               <div className="card col-span-4">
                 <figure>
                   <div className="absolute w-full p-3 flex justify-between">
                     <figcaption className="pill">New building</figcaption>
                     <figcaption className="pill">2022</figcaption>
                   </div>
-                  <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                  <Image src="/appartment-01.jpeg" alt="Appartment pictur" width="400" height="400" />
                 </figure>
                 <div className="content">
                   <h4 className="title-xs">Type</h4>
@@ -189,64 +190,71 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
+              
+              {/* Building 02 */}
               <div className="card col-span-4">
                 <figure>
                   <div className="absolute w-full p-3 flex justify-between">
-                    <figcaption className="pill">New building</figcaption>
-                    <figcaption className="pill">2022</figcaption>
+                    <figcaption className="pill">Coming soon</figcaption>
                   </div>
-                  <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                  <Image src="/blank-building.png" alt="Appartment pictur" width="400" height="400" />
                 </figure>
                 <div className="content">
                   <h4 className="title-xs">Type</h4>
-                  <p>Middle Floor Apartment</p>
+                  <p>/</p>
 
                   <h4 className="title-xs">Address</h4>
-                  <p>29630 Benalmádena, Málaga, España.</p>
+                  <p>/</p>
 
                   <h4 className="title-xs">Size</h4>
-                  <p className="mb-10">111 m<sup>2</sup> Living Room, 33 m<sup>2</sup> Terrace</p>
+                  <p className="mb-10">/</p>
 
                   <h4 className="title-xs">Extras</h4>
-                  <p className="mb-10">Pools</p>
+                  <p className="mb-10">/</p>
 
                   <div className="flex justify-between pt-5">
-                      <h4 className="title-xs"><strong>3</strong> Rooms</h4>
-                      <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
+                      <h4 className="title-xs"><strong>/</strong> Rooms</h4>
+                      <h4 className="title-xs"><strong>/</strong> bathrooms</h4>
                   </div>
                 </div>
               </div>
-
+              {/* Building 03 */}
               <div className="card col-span-4">
                 <figure>
                   <div className="absolute w-full p-3 flex justify-between">
-                    <figcaption className="pill">New building</figcaption>
-                    <figcaption className="pill">2022</figcaption>
+                    <figcaption className="pill">Coming soon</figcaption>
                   </div>
-                  <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                  <Image src="/blank-building.png" alt="me" width="400" height="400" />
                 </figure>
                 <div className="content">
                   <h4 className="title-xs">Type</h4>
-                  <p>Middle Floor Apartment</p>
+                  <p>/</p>
 
                   <h4 className="title-xs">Address</h4>
-                  <p>29630 Benalmádena, Málaga, España.</p>
+                  <p>/</p>
 
                   <h4 className="title-xs">Size</h4>
-                  <p className="mb-10">111 m<sup>2</sup> Living Room, 33 m<sup>2</sup> Terrace</p>
+                  <p className="mb-10">/</p>
 
                   <h4 className="title-xs">Extras</h4>
-                  <p className="mb-10">Pools</p>
+                  <p className="mb-10">/</p>
 
                   <div className="flex justify-between pt-5">
-                      <h4 className="title-xs"><strong>3</strong> Rooms</h4>
-                      <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
+                      <h4 className="title-xs"><strong>/</strong> Rooms</h4>
+                      <h4 className="title-xs"><strong>/</strong> bathrooms</h4>
                   </div>
                 </div>
               </div>
-
             </div>
+
+            <Title2 className="text-purple mb-4 text-center text-[28px]">Location of the appartments</Title2>
+            <div className="et_pb_tab_content"><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq2wVyr3HOKzPbFyOqxFRyPFcnKaFiqlY"></script>
+              <iframe loading="lazy" width="100%" height="480" frameBorder="0" scrolling="no" src="https://maps.google.it/maps?q=29630 Málaga&amp;output=embed"></iframe>
+            </div>
+          </Section>
+
+          <Section className="s-legal" id="s-legal">
+            <Title2 className="text-purple">Legals</Title2>
           </Section>
 
           
