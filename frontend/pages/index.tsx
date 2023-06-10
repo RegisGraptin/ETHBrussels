@@ -248,7 +248,7 @@ export default function Home() {
             </div>
 
             <Title2 className="text-purple mb-4 text-center text-[28px]">Location of the appartments</Title2>
-            <div className="et_pb_tab_content"><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq2wVyr3HOKzPbFyOqxFRyPFcnKaFiqlY"></script>
+            <div className="et_pb_tab_content"><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq2wVyr3HOKzPbFyOqxFRyPFcnKaFiqlY" async></script>
               <iframe loading="lazy" width="100%" height="480" frameBorder="0" scrolling="no" src="https://maps.google.it/maps?q=29630 Málaga&amp;output=embed"></iframe>
             </div>
           </Section>
