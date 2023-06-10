@@ -2,89 +2,89 @@ import Head from "next/head";
 import { Button, FormGroup, GridCol, GridContainer, GridRow, TextField } from "@taikai/rocket-kit";
 import { Container, Main, NavBar, BrandName, Menu, Footer, SubTitle, Content, Test, Title1, Section } from "../styles/home";
 import React, { FormEvent, useEffect, useState } from 'react';
-// import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
+import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
 
-// import { ERC1155Ownable } from '@taikai/dappkit';
+import { ERC1155Ownable } from '@taikai/dappkit';
 
 export default function Create() {
 
 
-  // async function nftCollection() {
+  async function nftCollection() {
 
-  //   let MULTISIG_CONTRACT = "0xc5EF893518208119968B294eE95d341C48c0f2e0";
+    let MULTISIG_CONTRACT = "0xc5EF893518208119968B294eE95d341C48c0f2e0";
 
-  //   const web3Connection = new Web3Connection({
-  //     web3Host: 'http://127.0.0.1:7545'
-  //   });
+    const web3Connection = new Web3Connection({
+      web3Host: 'http://127.0.0.1:7545'
+    });
 
-  //   await web3Connection.start();
-  //   await web3Connection.connect();
-  //   const deployer = new ERC1155Standard(web3Connection);
+    await web3Connection.start();
+    await web3Connection.connect();
+    const deployer = new ERC1155Standard(web3Connection);
 
-  //   await deployer.loadAbi();
-  //   const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
+    await deployer.loadAbi();
+    const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
 
-  //   /* Instantiate and use your new ERC1155 Token Contract*/
-  //   const erc1155Contract = new ERC1155Standard(web3Connection, tx.contractAddress);
-  //   await erc1155Contract.start();
+    /* Instantiate and use your new ERC1155 Token Contract*/
+    const erc1155Contract = new ERC1155Standard(web3Connection, tx.contractAddress);
+    await erc1155Contract.start();
 
-  //   erc1155Contract.mint(MULTISIG_CONTRACT, 0, 1000, '0x00');
-  //   console.log(erc1155Contract);
+    erc1155Contract.mint(MULTISIG_CONTRACT, 0, 1000, '0x00');
+    console.log(erc1155Contract);
 
-  // }
+  }
 
 
-  // async function deployERC1155() {
+  async function deployERC1155() {
 
-  //   const web3Connection = new Web3Connection({
-  //     web3Host: 'http://127.0.0.1:7545'
-  //   });
+    const web3Connection = new Web3Connection({
+      web3Host: 'http://127.0.0.1:7545'
+    });
 
-  //   await web3Connection.start();
-  //   await web3Connection.connect();
+    await web3Connection.start();
+    await web3Connection.connect();
 
-  //   /* Create an ERC1155Ownable Deployer */
-  //   const deployer = new ERC1155Ownable(web3Connection);
+    /* Create an ERC1155Ownable Deployer */
+    const deployer = new ERC1155Ownable(web3Connection);
 
-  //   /* Deploy the ERC1155 Contract */
-  //   await deployer.loadAbi();
-  //   const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
+    /* Deploy the ERC1155 Contract */
+    await deployer.loadAbi();
+    const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
 
-  //   /* Instantiate and use your new ERC1155 Token Contract*/
-  //   const erc1155Contract = new ERC1155Ownable(web3Connection, tx.contractAddress);
-  //   await erc1155Contract.start();
+    /* Instantiate and use your new ERC1155 Token Contract*/
+    const erc1155Contract = new ERC1155Ownable(web3Connection, tx.contractAddress);
+    await erc1155Contract.start();
 
-  //   erc1155Contract.mint('0xTO_ADDRESS', 0, 1000, '0x12345678');
+    erc1155Contract.mint('0xTO_ADDRESS', 0, 1000, '0x12345678');
 
-  // }
+  }
 
-  // async function createCollectionNFT() {
+  async function createCollectionNFT() {
 
-  //   const web3Connection = new Web3Connection({
-  //     web3Host: 'http://127.0.0.1:7545'
-  //   });
+    const web3Connection = new Web3Connection({
+      web3Host: 'http://127.0.0.1:7545'
+    });
 
-  //   await web3Connection.start();
-  //   await web3Connection.connect();
+    await web3Connection.start();
+    await web3Connection.connect();
 
-  //   const erc721Collectibles = new ERC721Collectibles(web3Connection);
+    const erc721Collectibles = new ERC721Collectibles(web3Connection);
 
-  //   await erc721Collectibles.loadAbi();
+    await erc721Collectibles.loadAbi();
 
-  //   // Deploy
-  //   const transactionReceipt = await erc721Collectibles.deployJsonAbi(
-  //     "Building #3304",
-  //     "RealState",
-  //     1000,
-  //     "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xDAI_ADDRESS",
-  //     "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", //     "0xPURCHASE_TOKEN" - UDSC 
-  //     "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xBASE_FEE_ADDRESS",
-  //     "0xc5EF893518208119968B294eE95d341C48c0f2e0"  //     "0xOTHER_ADDRESS" 
-  //   );
+    // Deploy
+    const transactionReceipt = await erc721Collectibles.deployJsonAbi(
+      "Building #3304",
+      "RealState",
+      1000,
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xDAI_ADDRESS",
+      "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", //     "0xPURCHASE_TOKEN" - UDSC 
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0", //     "0xBASE_FEE_ADDRESS",
+      "0xc5EF893518208119968B294eE95d341C48c0f2e0"  //     "0xOTHER_ADDRESS" 
+    );
 
-  //   console.log(transactionReceipt);
+    console.log(transactionReceipt);
 
-  // }
+  }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -210,7 +210,7 @@ export default function Create() {
                 className="pt-5"
                 value="Create new property"
                 variant="solid"
-                // action={() => createCollectionNFT()}
+                action={() => createCollectionNFT()}
               />
 
             </form>
