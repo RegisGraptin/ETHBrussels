@@ -28,7 +28,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar className={`g-nav fixed flex items-center justify-between w-full px-10 py-3 z-20 backdrop-blur-md ${scroll ? 'text-purple' : 'text-white'}`}>
+      <NavBar className={`g-nav fixed flex items-center justify-between w-full px-10 py-5 z-20 backdrop-blur-md ${scroll ? 'text-purple' : 'text-white'}`}>
         <BrandName className="!mb-0">Higuerón South Residences</BrandName>
         <Menu className="g-nav__menu">
           <a href="#s-project" className="is-active">Project</a>
@@ -180,7 +180,10 @@ export default function Home() {
                   <h4 className="title-xs">Size</h4>
                   <p className="mb-10">111 m<sup>2</sup> Living Room, 33 m<sup>2</sup> Terrace</p>
 
-                  <div className="flex justify-between pt-10">
+                  <h4 className="title-xs">Extras</h4>
+                  <p className="mb-10">Pools</p>
+
+                  <div className="flex justify-between pt-5">
                       <h4 className="title-xs"><strong>3</strong> Rooms</h4>
                       <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
                   </div>
@@ -188,9 +191,58 @@ export default function Home() {
               </div>
 
               <div className="card col-span-4">
-                <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                <figure>
+                  <div className="absolute w-full p-3 flex justify-between">
+                    <figcaption className="pill">New building</figcaption>
+                    <figcaption className="pill">2022</figcaption>
+                  </div>
+                  <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                </figure>
                 <div className="content">
-                  <p>content here</p>
+                  <h4 className="title-xs">Type</h4>
+                  <p>Middle Floor Apartment</p>
+
+                  <h4 className="title-xs">Address</h4>
+                  <p>29630 Benalmádena, Málaga, España.</p>
+
+                  <h4 className="title-xs">Size</h4>
+                  <p className="mb-10">111 m<sup>2</sup> Living Room, 33 m<sup>2</sup> Terrace</p>
+
+                  <h4 className="title-xs">Extras</h4>
+                  <p className="mb-10">Pools</p>
+
+                  <div className="flex justify-between pt-5">
+                      <h4 className="title-xs"><strong>3</strong> Rooms</h4>
+                      <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card col-span-4">
+                <figure>
+                  <div className="absolute w-full p-3 flex justify-between">
+                    <figcaption className="pill">New building</figcaption>
+                    <figcaption className="pill">2022</figcaption>
+                  </div>
+                  <Image src="/building-1.jpeg" alt="me" width="100" height="100" />
+                </figure>
+                <div className="content">
+                  <h4 className="title-xs">Type</h4>
+                  <p>Middle Floor Apartment</p>
+
+                  <h4 className="title-xs">Address</h4>
+                  <p>29630 Benalmádena, Málaga, España.</p>
+
+                  <h4 className="title-xs">Size</h4>
+                  <p className="mb-10">111 m<sup>2</sup> Living Room, 33 m<sup>2</sup> Terrace</p>
+
+                  <h4 className="title-xs">Extras</h4>
+                  <p className="mb-10">Pools</p>
+
+                  <div className="flex justify-between pt-5">
+                      <h4 className="title-xs"><strong>3</strong> Rooms</h4>
+                      <h4 className="title-xs"><strong>2</strong> bathrooms</h4>
+                  </div>
                 </div>
               </div>
 
