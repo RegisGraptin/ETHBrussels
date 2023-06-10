@@ -11,7 +11,7 @@ export const Main = styled.div`
   padding: 15px;
 `;
 
-export const Test = styled.h1`
+export const Test = styled.div`
   padding: 15px;
 `;
 

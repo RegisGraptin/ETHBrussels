@@ -5,9 +5,8 @@ import { Container, Main, NavBar, BrandName, Menu , Footer, Title, SubTitle, Con
 import ConnectModal from "../components/connect-wallet-modal";
 import React, { useState } from 'react';
 import ClickableEthAddress  from "../components/clickable-eth-address";
-import Link from 'next/link';
 
-export default function Home() {
+export default function About() {
 
   const { connected } = useWeb3();
   const [isConnectModal, setConnectModal] = useState(false);
@@ -20,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar>
-        <BrandName>LayerX Web3 Boilerplate</BrandName>
+        <BrandName>LayerX Web3 Boilerplate About</BrandName>
         <Menu>
           {!connected && (
             <Button
@@ -43,13 +42,6 @@ export default function Home() {
             &nbsp;<strong style={{color: "#222"}}>Dappkit</strong>™ + 
             <strong style={{color: "#222"}}>RocketKit</strong>™&nbsp;  🙌
           </SubTitle>
-
-          <div className="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
-            <p className="p-4 rounded-lg shadow-lg bg-slate-500">test</p>
-            <Link href="/about">About Us</Link><p className="p-4 rounded-lg shadow-lg bg-slate-500">test</p>
-            <p className="p-4 rounded-lg shadow-lg bg-fuchsia-500">test</p>
-            <p className="p-4 rounded-lg shadow-lg bg-fuchsia-500">test</p>
-          </div>
         </Content>        
       </Main>
       <Test>test</Test>
