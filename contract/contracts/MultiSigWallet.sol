@@ -1,7 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+
 contract MultiSigWallet {
+
+    uint price = 10e17; // price is 0.1 ETH per share
+    address vault; // specify vault address here
+    mapping (address => bool) estates;
+    mapping (address => address[]) estatesBuyers;
+
     // Events
     event Deposit(address indexed sender, uint amount, uint balance);
     event SubmitTransaction(
@@ -183,5 +192,37 @@ contract MultiSigWallet {
             transaction.executed,
             transaction.numConfirmations
         );
+    }
+
+    function buy(
+        address estate
+    )
+        payable public {
+            uint256 available = ERC1155(estate).balanceOf(address(this), 1);
+            uint256 amount = uint(msg.value)/uint(price);
+            uint256 refund = uint(msg.value)%uint(price);
+
+            require(amount != 0, "Insufficient amount of ETH sent! Price is 0.1 ETH per share.");
+            require(amount <= available, "Too few shares available.");
+
+            if (refund != 0) {
+                payable(msg.sender).transfer(refund);
+            }
+
+            if (!estates[estate]) {
+                estates[estate] = true;
+            }
+            ERC1155(estate).safeTransferFrom(address(this), msg.sender, 1, amount, "");
+            payable(vault).transfer(msg.value - refund);
+            estatesBuyers[estate].push(msg.sender);
+    }
+
+    function burn(
+        address estate
+    )
+        private {
+            estates[estate] = false;
+            delete estatesBuyers[estate];
+            // burn the nft itself
     }
 }
