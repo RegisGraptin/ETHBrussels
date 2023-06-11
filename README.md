@@ -34,7 +34,3 @@ When a company wants to gather funds, it needs to create a new NFT that will pro
 Currently, our first working approach is to use `ERC721Collectibles` using the LayerX dappKit framework. This allow us to create a NFT collection having the same price over all of them. This approach is only accessible for the administrator of the website. 
 
 > See `./frontend/pages/create.tsx` for the implementation.
-
-
-
-
