@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import ClickableEthAddress  from "../components/clickable-eth-address";
 import Link from 'next/link';
 import Image from 'next/image';
+import { ERC1155Standard, ERC721Collectibles, Web3Connection } from "@taikai/dappkit";
 
 export default function Home() {
 
@@ -19,6 +20,30 @@ export default function Home() {
       setScroll(window.scrollY > window.innerHeight * 0.9);
     });
   }, []);
+
+  async function nftCollection() {
+
+    let MULTISIG_CONTRACT = "0xc5EF893518208119968B294eE95d341C48c0f2e0";
+
+    const web3Connection = new Web3Connection({
+      web3Host: 'http://127.0.0.1:7545'
+    });
+
+    await web3Connection.start();
+    await web3Connection.connect();
+    const deployer = new ERC1155Standard(web3Connection);
+
+    await deployer.loadAbi();
+    const tx = await deployer.deployJsonAbi("https://api.npoint.io/47687dcd634e96f824e3");
+
+    /* Instantiate and use your new ERC1155 Token Contract*/
+    const erc1155Contract = new ERC1155Standard(web3Connection, tx.contractAddress);
+    await erc1155Contract.start();
+
+    erc1155Contract.mint(MULTISIG_CONTRACT, 0, 1000, '0x00');
+    console.log(erc1155Contract);
+
+  }
 
   return (
     <Container>
@@ -224,8 +249,9 @@ export default function Home() {
 
             <div className="md:grid-parent mb-20">
               {/* Building 01 */}
-              <div className="card col-span-4">
-                <figure>
+              <div className="card real col-span-4">
+                <figure className="relative">
+                  <figcaption className="price">695.000$ (1.444 tokens)</figcaption>
                   <div className="absolute w-full p-3 flex justify-between">
                     <figcaption className="pill">New building</figcaption>
                     <figcaption className="pill">2022</figcaption>
@@ -326,10 +352,10 @@ export default function Home() {
 
             <div className="md:grid-parent">
               <div className="col-span-5">
-                <p>In an ever-evolving regulatory landscape, it is imperative for blockchain-based projects to adhere to the applicable legal framework and maintain a high standard of compliance. TOKENSTATE is committed to ensuring responsible and transparent operations, taking all necessary measures to meet regulatory requirements and safeguard the interests of its users and stakeholders. This section provides an overview of the legal framework and regulatory compliance measures implemented by the project.</p>
+                <p>TokenEstate is committed to ensuring responsible and transparent operations, taking all necessary measures to meet regulatory requirements and safeguard the interests of its users and stakeholders. This section provides an overview of the legal framework and regulatory compliance measures implemented by the project.</p>
               </div>
               <div className="col-span-5 col-start-8">
-                <p>The TOKENSTATE operates within the legal framework of its jurisdiction, adhering to all relevant laws and regulations, including:</p>
+                <p>The TokenEstate operates within the legal framework of its jurisdiction, adhering to all relevant laws and regulations, including:</p>
                 <ul className="list-legal">
                   <li>Anti-Money Laundering (AML) and Counter-Terrorist Financing (CTF) regulations</li>
                   <li>Know Your Customer (KYC) requirements</li>
@@ -359,8 +385,7 @@ export default function Home() {
               <div className="mr-10">
                 <p><b>Documentation</b></p>
                 <nav>
-                  <Link href="/create">Create an NFT</Link>
-                  <Link href="/admin">Admin page</Link>
+                <a href="/docs_tokenestate.pdf"  target="_blank" rel="noopener noreferrer">Download documentation</a>
                 </nav>
               </div>
               <div className="ml-auto flex flex-col justify-end">
