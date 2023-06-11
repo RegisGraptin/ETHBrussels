@@ -18,8 +18,6 @@ An implementation can be seen at `./contract/contracts/MultiSigWallet.sol`. Also
 
 A second implementation of a Multisig can be found here `MultiSigWalletAsset.sol`. This one is mainly focused on the control over the share of the NFT.
 
-TODO :: 
-
 ## KYC System
 
 As we are dealing with real asset, a KYC system is mandatory. To implement this system, we though about using the `MultiSigWalletAsset`. Currently this system is quite simple, a user fill a form saying that he wants to invest in real estate. The user also share his public key and sign his data. Then, the company receives a new application, and decide to approve or not the transaction. 
@@ -27,17 +25,14 @@ As we are dealing with real asset, a KYC system is mandatory. To implement this 
 At the moment, this KYC system is only managed by a list of addresses store in a smart contract. But in the future, we can improve this services. Also, one idea was to have different level of KYC. For example, based on the trade flow, we can adjust the require information of the person. This can also allow the person to buy different kind of property. 
 
 
-### NFT Creation
+## New Building 
 
-When a company wants to create a new building on chain, 
-
-the process ?
+When a company wants to gather funds, it needs to create a new NFT that will provide all the information about the new building. This main NFT will be owned by the `MultiSigWalletAsset` allowing approval about the information send. Once the NFT is created, this one can create a list of NFT that can be tradable. At the moment, we want to have control over the lifecycle of the NFT. Indeed, only a KYC user can interact with the NFT. That's the reason why all exchange should be made by the main NFT, to be sure that the address of the sender and recipient are allowed by our KYC system.
 
 
-A first NFT will be created refering to the new building/appartment.
-Then, this NFT, will have the possibility to mint other NFT to decomposed the number of token available. 
+Currently, our first working approach is to use `ERC721Collectibles`. This allow us to create a NFT collection having the same price over all of them. Regarding the implementation, we are using the `dappkit.dev` library allowing us to mint NFT in a simple way.  
 
-Those NFT can be tradable. Thus a person can decide to buy/sell those NFT.
+> See `./frontend/pages/create.tsx` for the implementation.
 
 
 
