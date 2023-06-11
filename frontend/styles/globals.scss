@@ -23,9 +23,24 @@ main {
 }
 
 .g-nav {
+  svg {
+    width: 200px;
+    height: auto;
+
+    path {
+      transition: linear fill 0.2s;
+    }
+  }
+
   h1 {
     font-size: 18px;
     margin-bottom: 0;
+  }
+
+  &.text-purple {
+    svg path {
+      @apply fill-purple;
+    }
   }
 }
 
@@ -104,5 +119,24 @@ section {
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
+  }
+}
+
+.g-footer {
+  img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    transform: translateY(-20px);
+  }
+
+  nav a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
