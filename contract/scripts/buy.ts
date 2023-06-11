@@ -1,15 +1,10 @@
 import { ethers } from 'ethers';
+import { getMultiSigContract } from './getMultiSigContract';
 
 const estate = "";
 let full:boolean = true;
 
-const addressMultiSigAssetsManagement = "";
-const abiMultiSigAssetsManagement = "";
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const signer = provider.getSigner();
-const contract = new ethers.Contract(addressMultiSigAssetsManagement, abiMultiSigAssetsManagement, signer);
-
+const contract = getMultiSigContract();
 
 if (full) {
     const options = {value: ethers.utils.parseEther("100")};
