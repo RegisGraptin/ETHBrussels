@@ -98,6 +98,7 @@ export default function Create() {
       condition: form.condition.value as string,
       year_build: form.year_build.value as string,
       price: form.price.value as string,
+      llc: form.llc.value as string,
     }
 
     console.log(data);
@@ -202,6 +203,20 @@ export default function Create() {
 
                   </GridCol>
                 </GridRow>
+
+
+                <GridRow className="pb-5">
+                  <GridCol>
+                  <FormGroup label="llc">
+                    <TextField
+                        name="llc"
+                        placeholder="LLC Reprensentative"
+                      />
+                    </FormGroup>
+
+                  </GridCol>
+                </GridRow>
+
 
               </GridContainer>
 
