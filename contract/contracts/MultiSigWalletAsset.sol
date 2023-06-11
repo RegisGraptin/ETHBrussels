@@ -1,12 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+
 contract MultiSigWallet {
 
     uint price = 10e17; // price is 0.1 ETH per share
     address vault; // specify vault address here
     mapping (address => bool) estates;
     mapping (address => address[]) estatesBuyers;
+
+
+    // List of clients that have verify there information
+    mapping(address => bool) public clients;
 
     // Events
     event Deposit(address indexed sender, uint amount, uint balance);
@@ -222,4 +229,28 @@ contract MultiSigWallet {
             delete estatesBuyers[estate];
             // burn the nft itself
     }
+
+
+    function updateClientsKYC(
+        address[] calldata clientsToAdd,
+        address[] calldata clientsToRemove
+    ) external onlyOwner {
+        /**
+        * Update the list of user that are KYC or not.
+         */
+        // Add clients
+        for (uint i = 0; i < clientsToAdd.length; i++) {
+            if (! clients[clientsToAdd[i]]) {
+                clients[clientsToAdd[i]] = true;
+            }
+        }
+
+        // Remove clients
+        for (uint i = 0; i < clientsToRemove.length; i++) {
+            if (clients[clientsToRemove[i]]){
+                delete clients[clientsToRemove[i]];
+            }
+        }
+    }
+
 }

@@ -22,11 +22,9 @@ TODO ::
 
 ## KYC System
 
-As we are dealing with real asset, a KYC system is mandatory. To implement this system, we though that this one can be implemented in the MultiSigWalletAsset. Thus, all the wallet store in this contract are known. Thus, the contract can approuve or not to buy a contract
+As we are dealing with real asset, a KYC system is mandatory. To implement this system, we though about using the `MultiSigWalletAsset`. Currently this system is quite simple, a user fill a form saying that he wants to invest in real estate. The user also share his public key and sign his data. Then, the company receives a new application, and decide to approve or not the transaction. 
 
-
-KYC system 
-
+At the moment, this KYC system is only managed by a list of addresses store in a smart contract. But in the future, we can improve this services. Also, one idea was to have different level of KYC. For example, based on the trade flow, we can adjust the require information of the person. This can also allow the person to buy different kind of property. 
 
 
 ### NFT Creation
