@@ -28,7 +28,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar className={`g-nav fixed flex items-center justify-between w-full px-10 py-2 z-20 backdrop-blur-md ${scroll ? 'text-purple' : 'text-white'}`}>
+      <NavBar className={`g-nav fixed flex items-center justify-between w-full px-5 md:px-10 py-2 z-20 backdrop-blur-md ${scroll ? 'text-purple' : 'text-white'}`}>
         <BrandName className="!mb-0 invisible absolute pointer-events-none">TokenEstate - NFT Market</BrandName>
         <svg width="514" height="143" viewBox="0 0 514 143" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M141 92V97.319H151.674V117.502H158.997V97.319H169.671V92H141Z" fill="white"/>
@@ -45,7 +45,7 @@ export default function Home() {
         <path d="M84.1493 52.5817V46.5006C97.4863 56.1245 106.188 71.7985 106.189 89.4692C106.189 118.666 82.4344 142.421 53.2361 142.421C24.0394 142.421 0.284546 118.666 0.284546 89.4692C0.284546 71.7985 8.986 56.1245 22.326 46.5006V52.5817C11.7936 61.4209 5.08721 74.6758 5.08721 89.4692C5.08721 106.381 13.8536 121.285 27.0823 129.875V0L41.3479 7.86257V136.131C42.9049 136.527 44.4913 136.847 46.1041 137.087V38.6643L60.3697 46.53V137.089C61.9809 136.849 63.5674 136.529 65.1229 136.132V77.4138L79.3916 85.2748V129.873C92.6186 121.285 101.387 106.383 101.387 89.4692C101.387 74.6758 94.6786 61.4209 84.1493 52.5817Z" fill="white"/>
         </svg>
 
-        <Menu className="g-nav__menu">
+        <Menu className="g-nav__menu ml-5">
           <a href="#s-token">Tokenization</a>
           <a href="#s-project">Project</a>
           <a href="#s-building">Building</a>
@@ -342,18 +342,31 @@ export default function Home() {
         </Content>        
       </Main>
 
-      <Footer className="g-footer bg-purple text-white px-10 py-20">
+      <Footer className="g-footer bg-purple text-white px-10">
         <div className="md:grid-parent">
           <div className="col-span-4">
             <Image src="/logo-vertical.svg" width="120" height="120" alt=""></Image>
-            <p className="mb-0">Made with &#x2764; by our team - 2023</p>
           </div>
-          <div className="col-span-4">
-            <p><b>Administration</b></p>
-            <nav>
-              <Link href="/create">Create an NFT</Link>
-              <Link href="/admin">Admin page</Link>
-            </nav>
+          <div className="col-span-8">
+            <div className="flex h-full">
+              <div className="mr-10">
+                <p><b>Administration</b></p>
+                <nav>
+                  <Link href="/create">Create an NFT</Link>
+                  <Link href="/admin">Admin page</Link>
+                </nav>
+              </div>
+              <div className="mr-10">
+                <p><b>Documentation</b></p>
+                <nav>
+                  <Link href="/create">Create an NFT</Link>
+                  <Link href="/admin">Admin page</Link>
+                </nav>
+              </div>
+              <div className="ml-auto flex flex-col justify-end">
+                <p className="g-footer__love mb-0">Made with &#x2764; by our team - 2023</p>
+              </div>
+            </div>
           </div>
         </div>
       </Footer>

@@ -77,6 +77,26 @@ section img {
 }
 
 .g-nav {
+	svg {
+    width: 200px;
+    height: auto;
+
+    path {
+      transition: linear fill 0.2s;
+    }
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  &.text-purple {
+    svg path {
+      @apply fill-purple;
+    }
+  }
+	
 	&__menu {
 		position: relative;
 		display: flex;
@@ -84,6 +104,10 @@ section img {
 		a {
 			position: relative;
 			display: inline-block;
+
+			@media screen and (max-width: 820px) {
+				font-size: 14px;
+			}
 
 			&:hover {
 				font-weight: 500;
@@ -101,6 +125,10 @@ section img {
 
 			&:not(:last-child) {
 				@apply mr-5;
+
+				@media screen and (min-width: 82&px) {
+					@apply mr-2;
+				}
 			}
 		}
 	}
