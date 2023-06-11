@@ -6,6 +6,8 @@ Deploy a contract with multiple owner. This allow the possibility to execute tra
 > Demo execution
 npx hardhat run scripts/deploy_multisig.ts
 
+npx hardhat run scripts/deploy.ts
+
 
 ## References
 - https://github.com/Tenderly/tenderly-examples
