@@ -16,6 +16,8 @@ In this implementation, anyone can send fund to it. But when we want to retrieve
 
 A second implementation of a Multisig can be found here `MultiSigWalletAsset.sol`. This one is mainly focused on the real state asset and the creation of the NFT to sell that to potential clients. We also have a KYC system that manage the client.
 
+The address of the second contract implementation can be found on Goerli: 0xD9d6a2BACB7e7FE7b88ba40c026a72525B4FC291
+
 ## KYC System
 
 As we are dealing with real asset, a KYC system is mandatory. To implement this system, we though about using the `MultiSigWalletAsset`. Currently this system is quite simple, a user fill a form saying that he wants to invest in real estate. The user also share his public key and sign his data. Then, the company receives a new application, and decide to approve or not the transaction. 
