@@ -2,11 +2,13 @@
 pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract MultiSigWallet {
 
-    uint price = 10e17; // price is 0.1 ETH per share
+    uint pricePart = 10e17; // price is 0.1 ETH per share
+    uint priceFull = 10e20; // price of a full estate is 100 ETH
     address vault; // specify vault address here
     mapping (address => bool) estates;
     mapping (address => address[]) estatesBuyers;
@@ -198,13 +200,32 @@ contract MultiSigWallet {
         );
     }
 
-    function buy(
+    function buyFull(
+        address estate,
+        uint256 tokenId
+    )
+        payable public {
+            require (clients[msg.sender], "User not registered to the KYC");
+            require(msg.value >= priceFull, "Not enough ETH sent.");
+
+            uint256 refund = uint256(msg.value) - uint256(priceFull);
+            if (refund != 0) {
+                payable(msg.sender).transfer(refund);
+            }
+
+            ERC721(estate).safeTransferFrom(address(this), address(msg.sender), tokenId, "");
+            payable(vault).transfer(msg.value - refund);
+    }
+
+    function buyPart(
         address estate
     )
         payable public {
+            require (clients[msg.sender], "User not registered to the KYC");
+
             uint256 available = ERC1155(estate).balanceOf(address(this), 1);
-            uint256 amount = uint(msg.value)/uint(price);
-            uint256 refund = uint(msg.value)%uint(price);
+            uint256 amount = uint256(msg.value)/uint256(pricePart);
+            uint256 refund = uint256(msg.value)%uint256(pricePart);
 
             require(amount != 0, "Insufficient amount of ETH sent! Price is 0.1 ETH per share.");
             require(amount <= available, "Too few shares available.");
@@ -221,15 +242,13 @@ contract MultiSigWallet {
             estatesBuyers[estate].push(msg.sender);
     }
 
-    function burn(
+    function deletePart(
         address estate
     )
-        private {
+        external onlyOwner {
             estates[estate] = false;
             delete estatesBuyers[estate];
-            // burn the nft itself
     }
-
 
     function updateClientsKYC(
         address[] calldata clientsToAdd,
