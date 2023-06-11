@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Open+Sans:wght@400;500&family=Playfair+Display&family=Poppins:wght@300&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  @apply font-sans;
 	font-size: 15px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -13,7 +14,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+  @apply font-serif;
 	margin-bottom: 40px;
 }
 

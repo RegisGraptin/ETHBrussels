@@ -14,7 +14,7 @@ module.exports = {
         purple: '#4329A6',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Poppins', 'serif'],
         sans: ['Open Sans', 'sans-serif'],
       },
     },
