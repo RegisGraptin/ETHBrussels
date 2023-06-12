@@ -1,5 +1,5 @@
 
-# ETHBrussels - TOKENSTATE
+# ETHBrussels - TOKENESTATE
 
 TOKENSTATE aims to harness the power of blockchain technology to construct physical non-fungible tokens (pNFTs), which serve as verifiable proofs of ownership and authenticity. The core benefits include facilitating financial support to real estate assets via effective funding strategies and granting investors the opportunity to broaden their investment portfolio, thereby amplifying their potential for financial growth and stability.
 
